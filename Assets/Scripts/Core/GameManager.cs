@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Controla el flujo de la partida: cuenta regresiva, juego y fin.
@@ -47,6 +48,29 @@ public class GameManager : MonoBehaviour
         hud.SetHighScore(bestAtStart);
         AudioManager.Instance?.SetMusicDucked(false);
         StartCoroutine(CountdownRoutine());
+    }
+
+    private void Update()
+    {
+        if (State != GameState.GameOver) return;
+
+        Keyboard keyboard = Keyboard.current;
+        if (keyboard == null) return;
+
+        if (keyboard.enterKey.wasPressedThisFrame || keyboard.numpadEnterKey.wasPressedThisFrame)
+            RestartGame();
+        else if (keyboard.escapeKey.wasPressedThisFrame)
+            GoToMenu();
+    }
+
+    public void RestartGame()
+    {
+        SceneLoader.Load(SceneLoader.GameScene);
+    }
+
+    public void GoToMenu()
+    {
+        SceneLoader.Load(SceneLoader.MenuScene);
     }
 
     private IEnumerator CountdownRoutine()

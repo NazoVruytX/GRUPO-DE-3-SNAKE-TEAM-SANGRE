@@ -63,6 +63,8 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
+        if (Instance != this) return; // duplicado que está por destruirse
+
         // Cambio suave del volumen de la música.
         musicSource.volume = Mathf.MoveTowards(musicSource.volume, targetMusicVolume, Time.unscaledDeltaTime * 0.5f);
 
