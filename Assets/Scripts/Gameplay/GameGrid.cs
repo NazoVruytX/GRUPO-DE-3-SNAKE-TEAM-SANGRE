@@ -60,5 +60,9 @@ public class GameGrid : MonoBehaviour
         if (wall == null) return;
         wall.transform.localPosition = localPosition;
         wall.size = size;
+
+        // El collider de la pared cubre todo el sprite para detectar el choque.
+        if (wall.TryGetComponent(out BoxCollider2D wallCollider))
+            wallCollider.size = size;
     }
 }
