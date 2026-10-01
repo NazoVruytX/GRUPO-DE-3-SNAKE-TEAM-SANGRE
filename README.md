@@ -1,35 +1,46 @@
-GRUPO-DE-3-SNAKE-TEAM-SANGRE 🐍
+# GRUPO-DE-3-SNAKE-TEAM-SANGRE 🐍
 
-Proyecto académico grupal para el desarrollo del clásico videojuego Snake utilizando el motor gráfico Unity (C#).
+Proyecto académico grupal para el desarrollo del clásico videojuego **Snake** utilizando el motor gráfico **Unity (C#)**.
 
-👥 Integrantes del Equipo (Team Sangre)
+## 👥 Integrantes del Equipo (Team Sangre)
 
-Carlos Daniel Valverde Mendoza
+- Carlos Daniel Valverde Mendoza
+- Jhoel Eduardo Condoreno Chura
+- Alvaro Luis Carlos Del Carpio Blanco
 
-Jhoel Eduardo Condoreno Chura
-
-Alvaro Luis Carlos Del Carpio Blanco
-
-🎮 Descripción del Proyecto
+## 🎮 Descripción del Proyecto
 
 Este repositorio contiene el código fuente, assets y configuraciones para nuestro juego de Snake en 2D. El proyecto ha sido estructurado para cumplir con todos los requerimientos del trabajo en aula (presencial).
 
-✅ Características y Requisitos Implementados
+## ✅ Características y Requisitos Implementados
 
 Según lo establecido para grupos de 3 personas, el juego incluye:
 
-Mecánicas Clásicas: Movimiento continuo y crecimiento de la serpiente al comer.
+- **Mecánicas Clásicas:** Movimiento continuo y crecimiento de la serpiente al comer.
+- **Sistema de Audio:** Implementación de sonidos para recolección de puntos y Game Over.
+- **Físicas:** Detección de colisiones (con los bordes y con el propio cuerpo de la serpiente).
+- **UI / Interfaz:** Contador de puntuación en pantalla y lógica de finalización de partida.
+- **Gestión de Escenas:** El juego cuenta con al menos 2 escenas funcionales:
+  - Menú Principal (Inicio).
+  - Escena de Juego (Gameplay).
+- **Entrega Final:** Repositorio en GitHub y ejecutable funcional listo para su rápida exposición.
 
-Sistema de Audio: Implementación de sonidos para recolección de puntos y Game Over.
+## 🛠️ Tecnologías
 
-Físicas: Detección de colisiones (con los bordes y con el propio cuerpo de la serpiente).
+- Unity **6000.3.16f1** (Unity 6.3) — Built-in Render Pipeline, 2D
+- C#
+- Input System (paquete `com.unity.inputsystem`)
+- TextMeshPro (incluido en `com.unity.ugui`)
 
-UI / Interfaz: Contador de puntuación en pantalla y lógica de finalización de partida.
+## 📂 Cómo abrir el proyecto
 
-Gestión de Escenas: El juego cuenta con al menos 2 escenas funcionales:
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/NazoVruytX/GRUPO-DE-3-SNAKE-TEAM-SANGRE.git
+   ```
+2. En **Unity Hub** → **Add** → **Add project from disk** → seleccionar la carpeta clonada.
+3. Abrir con la versión **6000.3.16f1**.
 
-Menú Principal (Inicio).
+## 🚧 Estado
 
-Escena de Juego (Gameplay).
-
-Entrega Final: Repositorio en GitHub y ejecutable funcional listo para su rápida exposición.
+En desarrollo.
