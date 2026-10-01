@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         bestAtStart = HighScore.Get();
         hud.SetScore(0);
         hud.SetHighScore(bestAtStart);
+        AudioManager.Instance?.SetMusicDucked(false);
         StartCoroutine(CountdownRoutine());
     }
 
@@ -54,10 +55,12 @@ public class GameManager : MonoBehaviour
         for (int i = countdownFrom; i > 0; i--)
         {
             hud.ShowCountdown(i.ToString());
+            AudioManager.Instance?.PlayCountdownBeep();
             yield return new WaitForSeconds(1f);
         }
 
         hud.ShowCountdown("¡YA!");
+        AudioManager.Instance?.PlayCountdownGo();
         State = GameState.Playing;
         snake.enabled = true;
 
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviour
     {
         Score += pointsPerFood;
         hud.SetScore(Score);
+        AudioManager.Instance?.PlayEat();
 
         // Si superamos el récord, el contador de récord sube en vivo.
         if (Score > bestAtStart)
@@ -79,5 +83,14 @@ public class GameManager : MonoBehaviour
     {
         State = GameState.GameOver;
         HighScore.TrySave(Score);
+        StartCoroutine(GameOverSoundRoutine());
+    }
+
+    private IEnumerator GameOverSoundRoutine()
+    {
+        AudioManager.Instance?.PlayCrash();
+        AudioManager.Instance?.SetMusicDucked(true);
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.Instance?.PlayGameOver();
     }
 }
