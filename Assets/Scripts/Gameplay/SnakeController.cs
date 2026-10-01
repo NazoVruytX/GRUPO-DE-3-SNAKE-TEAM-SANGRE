@@ -23,6 +23,10 @@ public class SnakeController : MonoBehaviour
     [Header("Movimiento")]
     [Tooltip("Segundos entre cada paso (menos = más rápido).")]
     [SerializeField, Min(0.06f)] private float stepInterval = 0.14f;
+    [Tooltip("Cuánto se acelera (en segundos) cada vez que come.")]
+    [SerializeField, Min(0f)] private float speedUpPerFood = 0.004f;
+    [Tooltip("Intervalo mínimo: la serpiente nunca será más rápida que esto.")]
+    [SerializeField, Min(0.06f)] private float minStepInterval = 0.07f;
     [SerializeField, Min(2)] private int initialLength = 4;
 
     [Header("Apariencia")]
@@ -167,6 +171,7 @@ public class SnakeController : MonoBehaviour
         if (other.TryGetComponent(out Food food))
         {
             pendingGrowth++;
+            stepInterval = Mathf.Max(minStepInterval, stepInterval - speedUpPerFood);
             food.Eat();
             FoodEaten?.Invoke();
         }
