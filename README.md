@@ -38,7 +38,7 @@ Según lo establecido para grupos de 3 personas, el juego incluye:
 | Contador | HUD con **puntos**, **récord** guardado con `PlayerPrefs` y cuenta regresiva **3, 2, 1, ¡YA!** al iniciar. |
 | Finalización | Pantalla **¡FIN DEL JUEGO!** (o **¡GANASTE!**) con puntaje, récord, aviso de **nuevo récord** y botones Reintentar / Menú. También hay menú de **pausa**. |
 | 2 escenas | `MainMenu` (Jugar, Sonido, Salir) y `Game`, con transición de fundido entre ellas. |
-| Ejecutable | Compilación para Windows desde el menú **Snake → Compilar para Windows** (ver más abajo). |
+| Ejecutable | `Ejecutable/Snake.exe` incluido en el repositorio, generado desde el menú **Snake → Compilar para Windows**. |
 
 ## 🕹️ Controles
 
@@ -53,10 +53,12 @@ Según lo establecido para grupos de 3 personas, el juego incluye:
 
 ## ▶️ Cómo jugar (ejecutable)
 
-1. Ir a la sección **Releases** del repositorio y descargar `Snake-TeamSangre-Windows.zip`.
-2. Extraer el `.zip` en una carpeta.
-3. Ejecutar **`Snake.exe`**.
+El juego compilado para Windows (64 bits) está en la carpeta [`Ejecutable/`](Ejecutable) del repositorio.
 
+1. Clonar el repositorio, o descargarlo con **Code → Download ZIP** y extraerlo.
+2. Abrir la carpeta `Ejecutable` y ejecutar **`Snake.exe`**.
+
+> `Snake.exe` necesita los demás archivos de la carpeta (`UnityPlayer.dll`, `Snake_Data`, etc.): si se copia a otro lugar, hay que copiar la carpeta `Ejecutable` completa.
 > Si Windows muestra el aviso de SmartScreen (el ejecutable no está firmado), elegir **Más información → Ejecutar de todas formas**.
 > Con **Alt + Enter** se cambia entre ventana y pantalla completa.
 
@@ -80,7 +82,7 @@ Según lo establecido para grupos de 3 personas, el juego incluye:
 
 ## 🏗️ Cómo compilar el ejecutable
 
-En Unity: menú **Snake → Compilar para Windows**. El juego se genera en `Builds/Windows/Snake.exe` (la carpeta `Builds/` no se sube al repositorio; el ejecutable se publica en **Releases**).
+En Unity: menú **Snake → Compilar para Windows**. El juego se genera (o se actualiza) en `Ejecutable/Snake.exe`.
 
 ## 🗂️ Estructura del proyecto
 
@@ -113,6 +115,7 @@ Assets/
 │       └── UIFloat.cs          Efecto de flotación en la UI
 ├── Sprites/          Sprites pixel art (.png)
 └── TextMesh Pro/     Recursos de TextMeshPro (fuente y shaders)
+Ejecutable/           Juego compilado para Windows (Snake.exe y sus archivos)
 Tools/
 ├── generar_sprites.py  Genera los sprites de Assets/Sprites
 └── generar_audio.py    Genera la música y los efectos de Assets/Audio

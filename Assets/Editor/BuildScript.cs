@@ -5,13 +5,13 @@ using UnityEditor.Build.Reporting;
 using UnityEngine;
 
 /// <summary>
-/// Compila el juego para Windows (64 bits) en la carpeta Builds/Windows.
+/// Compila el juego para Windows (64 bits) en la carpeta Ejecutable/ (en la raíz del repositorio).
 /// Desde Unity: menú "Snake > Compilar para Windows".
 /// Desde la consola: Unity.exe -batchmode -quit -projectPath . -executeMethod BuildScript.BuildWindows
 /// </summary>
 public static class BuildScript
 {
-    private const string OutputFolder = "Builds/Windows";
+    private const string OutputFolder = "Ejecutable";
     private const string ExeName = "Snake.exe";
 
     [MenuItem("Snake/Compilar para Windows")]
